@@ -19,18 +19,20 @@ const App = () => {
       id: Math.floor(Math.random() * 1000),
       text: input,
     };
-    console.log(taskTime.text);
+
     setTodoTime([...todoTime, taskTime]);
   };
+  const completeTodo = (id) => {
+    console.log(id);
+  };
   return (
-    <div className="bg-gray-400 flex flex-col justify-center items-center">
-      <h1>Inter Your Tasks</h1>
-      <h2>Not to forget enything</h2>
-      <div className="container">
-        tasks
+    <div className="bg-gray-800 w-full h-screen flex flex-col justify-start items-center">
+      <h1 className="font-bold text-white text-lg mt-4">Inter Your Tasks</h1>
+      <h2 className="text-sm text-white mb-2">Not to forget anything</h2>
+      <div className="m-4 flex flex-col justify-center items-center">
         <TodoForm addHandler={addHandler} addTimeHandler={addTimeHandler} />
       </div>
-      <TodoList todo={todo} time={todoTime} />
+      <TodoList todo={todo} time={todoTime} onComplete={completeTodo} />
     </div>
   );
 };

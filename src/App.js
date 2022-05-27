@@ -23,7 +23,16 @@ const App = () => {
     setTodoTime([...todoTime, taskTime]);
   };
   const completeTodo = (id) => {
-    console.log(id);
+    const index = todo.findIndex((todos) => todos.id === id);
+    const selectedTodo = { ...todo[index] };
+    selectedTodo.isCompletes = !selectedTodo.isCompletes;
+    const updatedTodo = [...todo];
+    updatedTodo[index] = selectedTodo;
+    setTodo(updatedTodo);
+  };
+  const deletTodo = (id) => {
+    const filteredTodo = todo.filter((t) => t.id !== id);
+    setTodo(filteredTodo);
   };
   return (
     <div className="bg-gray-800 w-full h-screen flex flex-col justify-start items-center">
@@ -32,7 +41,12 @@ const App = () => {
       <div className="m-4 flex flex-col justify-center items-center">
         <TodoForm addHandler={addHandler} addTimeHandler={addTimeHandler} />
       </div>
-      <TodoList todo={todo} time={todoTime} onComplete={completeTodo} />
+      <TodoList
+        todo={todo}
+        time={todoTime}
+        onDelete={deletTodo}
+        onComplete={completeTodo}
+      />
     </div>
   );
 };

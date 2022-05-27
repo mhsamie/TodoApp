@@ -1,6 +1,6 @@
 import Todo from "./Todo";
 
-const TodoList = ({ todo, time, onComplete }) => {
+const TodoList = ({ todo, time, onComplete, onDelete }) => {
   const renderEachTodo = () => {
     if (todo.length === 0) return <p>add sth</p>;
 
@@ -9,6 +9,7 @@ const TodoList = ({ todo, time, onComplete }) => {
         <Todo
           key={todos.id}
           onComplete={() => onComplete(todos.id)}
+          onDelete={() => onDelete(todos.id)}
           time={time}
           todos={todos}
         />

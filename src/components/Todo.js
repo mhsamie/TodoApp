@@ -9,18 +9,18 @@ const Todo = ({ todos, time, onComplete, onDelete, onEdit }) => {
     });
   };
   return (
-    <div className="flex flex-wrap">
+    <div className="flex justify-between pr-4 pl-4 pt-2 pb-2 bg-gray-300 m-2 rounded-lg  ">
       <div
         className={
           todos.isCompletes
             ? "line-through decoration-2 decoration-green-500 "
-            : "flex justify-between"
+            : "flex"
         }
       >
         {todos.text}
         {taskTime()}
       </div>
-      <div className="flex">
+      <div>
         <button onClick={onComplete}>
           <AiOutlineCheck />
         </button>

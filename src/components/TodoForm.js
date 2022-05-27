@@ -25,17 +25,17 @@ const TodoForm = (props) => {
       {props.edit ? (
         <>
           <input
-            placeholder="  Update your task"
+            placeholder="Update your task"
             type="text"
             value={task}
             onChange={textChangeHandler}
-            className="rounded-2xl text-white bg-gray-500 placeholder:text-sm placeholder:text-white focus:outline-0"
+            className="rounded-2xl indent-2 text-white bg-gray-500 placeholder:text-sm placeholder:text-white focus:outline-0"
           />
           <input
             type="time"
             value={time}
             onChange={timeChangeHandler}
-            className="rounded-2xl focus:outline-0 text-white bg-gray-500"
+            className="rounded-2xl indent-2 focus:outline-0 text-white bg-gray-500"
           />
           <button className="bg-yellow-200 rounded-2xl w-auto" type="submit">
             update
@@ -44,17 +44,17 @@ const TodoForm = (props) => {
       ) : (
         <>
           <input
-            placeholder="  Add task"
+            placeholder="Add task"
             type="text"
             value={task}
             onChange={textChangeHandler}
-            className="rounded-2xl text-white bg-gray-500 placeholder:text-sm placeholder:text-white focus:outline-0"
+            className="rounded-2xl indent-2 text-white bg-gray-500 placeholder:text-sm placeholder:text-white focus:outline-0"
           />
           <input
             type="time"
             value={time}
             onChange={timeChangeHandler}
-            className="rounded-2xl focus:outline-0 text-white bg-gray-500"
+            className="rounded-2xl indent-2 focus:outline-0 text-white bg-gray-500"
           />
           <button className="bg-yellow-200 rounded-2xl w-6" type="submit">
             +

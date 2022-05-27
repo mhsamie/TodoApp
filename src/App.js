@@ -34,6 +34,9 @@ const App = () => {
     const filteredTodo = todo.filter((t) => t.id !== id);
     setTodo(filteredTodo);
   };
+  const editTodo = (id) => {
+    console.log(id);
+  };
   return (
     <div className="bg-gray-800 w-full h-screen flex flex-col justify-start items-center">
       <h1 className="font-bold text-white text-lg mt-4">Inter Your Tasks</h1>
@@ -46,6 +49,7 @@ const App = () => {
         time={todoTime}
         onDelete={deletTodo}
         onComplete={completeTodo}
+        onUpdate={editTodo}
       />
     </div>
   );

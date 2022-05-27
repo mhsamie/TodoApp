@@ -1,17 +1,22 @@
 import { AiOutlineDelete } from "react-icons/ai";
 import { AiOutlineCheck } from "react-icons/ai";
 import { AiOutlineEdit } from "react-icons/ai";
-const Todo = ({ todos, time, onComplete, onDelete }) => {
+const Todo = ({ todos, time, onComplete, onDelete, onEdit }) => {
   const taskTime = () => {
     if (!time) return <p>plz inter the time"</p>;
     return time.map((times) => {
-      console.log(times);
       return <div key={times.id}>{times.text}</div>;
     });
   };
   return (
-    <div className="flex">
-      <div className={todos.isCompletes ? "bg-red-100" : "flex"}>
+    <div className="flex flex-wrap">
+      <div
+        className={
+          todos.isCompletes
+            ? "line-through decoration-2 decoration-green-500 "
+            : "flex justify-between"
+        }
+      >
         {todos.text}
         {taskTime()}
       </div>
@@ -22,7 +27,7 @@ const Todo = ({ todos, time, onComplete, onDelete }) => {
         <button onClick={onDelete}>
           <AiOutlineDelete />
         </button>
-        <button>
+        <button onClick={onEdit}>
           <AiOutlineEdit />
         </button>
       </div>

@@ -22,22 +22,45 @@ const TodoForm = (props) => {
   };
   return (
     <form onSubmit={submitFormHandler}>
-      <input
-        placeholder="  Add task"
-        type="text"
-        value={task}
-        onChange={textChangeHandler}
-        className="rounded-2xl text-white bg-gray-500 placeholder:text-sm placeholder:text-white focus:outline-0"
-      />
-      <input
-        type="time"
-        value={time}
-        onChange={timeChangeHandler}
-        className="rounded-2xl focus:outline-0 text-white bg-gray-500"
-      />
-      <button className="bg-yellow-200 rounded-2xl w-6" type="submit">
-        +
-      </button>
+      {props.edit ? (
+        <>
+          <input
+            placeholder="  Update your task"
+            type="text"
+            value={task}
+            onChange={textChangeHandler}
+            className="rounded-2xl text-white bg-gray-500 placeholder:text-sm placeholder:text-white focus:outline-0"
+          />
+          <input
+            type="time"
+            value={time}
+            onChange={timeChangeHandler}
+            className="rounded-2xl focus:outline-0 text-white bg-gray-500"
+          />
+          <button className="bg-yellow-200 rounded-2xl w-auto" type="submit">
+            update
+          </button>
+        </>
+      ) : (
+        <>
+          <input
+            placeholder="  Add task"
+            type="text"
+            value={task}
+            onChange={textChangeHandler}
+            className="rounded-2xl text-white bg-gray-500 placeholder:text-sm placeholder:text-white focus:outline-0"
+          />
+          <input
+            type="time"
+            value={time}
+            onChange={timeChangeHandler}
+            className="rounded-2xl focus:outline-0 text-white bg-gray-500"
+          />
+          <button className="bg-yellow-200 rounded-2xl w-6" type="submit">
+            +
+          </button>
+        </>
+      )}
     </form>
   );
 };

@@ -5,6 +5,7 @@ const Todo = ({ todos, time, onComplete }) => {
   const taskTime = () => {
     if (!time) return <p>plz inter the time"</p>;
     return time.map((times) => {
+      console.log(times);
       return <div key={times.id}>{times.text}</div>;
     });
   };

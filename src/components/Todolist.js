@@ -27,7 +27,10 @@ const TodoList = ({ todo, time, onComplete, onDelete, onUpdate }) => {
   };
 
   return (
-    <div className=" p-1 m-1 w-72">
+    <div
+      className=" p-1 m-1 w-auto
+    "
+    >
       {edit.id ? (
         <TodoForm addHandler={submitEditedTodoHandler} edit={edit} />
       ) : (

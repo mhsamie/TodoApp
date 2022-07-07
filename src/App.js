@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import TodoList from "./components/Todolist";
 import TodoForm from "./components/TodoForm";
+import NavBar from "./components/NavBar";
 
 const App = () => {
   const [todo, setTodo] = useState([]);
@@ -34,13 +35,21 @@ const App = () => {
     const filteredTodo = todo.filter((t) => t.id !== id);
     setTodo(filteredTodo);
   };
-  const editTodo = (id) => {
-    console.log(id);
+  const editTodo = (id, newValue) => {
+    const index = todo.findIndex((todos) => todos.id === id);
+    const selectedTodo = { ...todo[index] };
+    selectedTodo.text = newValue;
+    const updatedTodo = [...todo];
+    updatedTodo[index] = selectedTodo;
+    setTodo(updatedTodo);
   };
   return (
-    <div className="bg-gray-800 w-full h-screen flex flex-col justify-start items-center">
+    <div className="bg-gray-800 w-full min-h-screen max-h-full flex flex-col justify-start items-center">
       <h1 className="font-bold text-white text-lg mt-4">Inter Your Tasks</h1>
       <h2 className="text-sm text-white mb-2">Not to forget anything</h2>
+      <NavBar
+        uncompleted={todo.filter((todos) => todos.isCompletes === false).length}
+      />
       <div className="m-4 flex flex-col justify-center items-center">
         <TodoForm addHandler={addHandler} addTimeHandler={addTimeHandler} />
       </div>

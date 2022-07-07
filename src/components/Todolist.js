@@ -5,8 +5,9 @@ import TodoForm from "./TodoForm";
 const TodoList = ({ todo, time, onComplete, onDelete, onUpdate }) => {
   const [edit, setEdit] = useState({ id: null, text: "", isComplets: false });
 
-  const submitEditedTodoHandler = () => {
-    onUpdate(edit.id);
+  const submitEditedTodoHandler = (newValue) => {
+    onUpdate(edit.id, newValue);
+    setEdit({ id: null, text: "" });
   };
 
   const renderEachTodo = () => {
@@ -27,10 +28,7 @@ const TodoList = ({ todo, time, onComplete, onDelete, onUpdate }) => {
   };
 
   return (
-    <div
-      className=" p-1 m-1 w-auto
-    "
-    >
+    <div className=" p-1 m-1 w-auto">
       {edit.id ? (
         <TodoForm addHandler={submitEditedTodoHandler} edit={edit} />
       ) : (

@@ -9,8 +9,9 @@ const App = () => {
   const [selectedOption, setSelectedOption] = useState("All");
   const [filteredTodos, setFilterTodos] = useState([]);
   useEffect(() => {
-    filterTodo(selectedOption);
+    filterTodo(selectedOption.value);
   }, [todo, selectedOption]);
+  useEffect;
   const addHandler = (input) => {
     const newTask = {
       id: Math.floor(Math.random() * 1000),
@@ -53,7 +54,7 @@ const App = () => {
     }
   };
   const selectChangeHandler = (e) => {
-    setSelectedOption(e.value);
+    setSelectedOption(e);
     filterTodo(e.value);
   };
   return (
